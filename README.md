@@ -134,7 +134,7 @@ android:theme="@style/Theme.AppCompat
 13. PC - Pixel 연결하기
 * 방법 1: 물리적 연결
   * C 타입 케이블로 연결하면 Android Studio 에 기기가 인식된다.
-* 방법 2: wifi 다이렉트 *(통상 Android 11 이상을 권장하지만, 해도 된다.)*
+* 방법 2: wifi 다이렉트 *(Android 10 버전 이하)*
   * PC 와 Google Pixel 을 같은 wifi 에 연결한 뒤, CMD 창에 아래와 같이 입력한다.
     * 만약 adb가 없다면 환경 변수에서 추가하면 된다. SDK가 설치되면서 자동으로 설치되었을 것이기 때문이다.
 ```bash
