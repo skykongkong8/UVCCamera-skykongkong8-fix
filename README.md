@@ -75,7 +75,7 @@ KOREAN GUIDLINE
 1. 프로젝트를 진행할 디렉토리를 생성하고 해당 디렉토리 내부로 들어간다.
 2. 아래 Git 커맨드로 파일을 불러온다.
 ```git
-git clone https://github.com/komakai/UVCCamera.git
+git clone https://github.com/skykongkong8/UVCCamera.git
 ``` 
 3. local.properties 파일을 생성하여 SDK, NDK 경로를 잡아준다.
 4. gradle 과 gradle plugin 버전을 잘 확인하여 설정한다.
@@ -88,7 +88,7 @@ git clone https://github.com/komakai/UVCCamera.git
 1. 프로젝트를 진행할 디렉토리를 생성하고 해당 디렉토리 내부로 들어간다.
 2. 아래 Git 커맨드로 파일을 불러온다.
 ```git
-git clone https://github.com/komakai/UVCCamera.git
+git clone https://github.com/skykongkong8/UVCCamera.git
 ```
 3. Android Studio 에서 ‘기존 프로젝트 열기’를 통해 **gradle 유형**으로 해당 경로 내부의 UVCCamera-komakai-fixes 를 받아온다. (안쪽 것)  
 **편의상 이 디렉토리를 ‘.’ 이라고 표현하겠다**  
@@ -97,7 +97,7 @@ git clone https://github.com/komakai/UVCCamera.git
 5. 같은 창의 SDK Tools 에서 NDK(Side by side), Google Play Licensing Library, Google USB Driver 를 설치한다.
 6. 위의 API 버전들을 확인하고, File > Project Structure > SDK Location 에서 그에 맞게 프로그램 버전과 경로를 설정한다.
 * 이때, local.properties 파일에 직접 저장해야 할 수 있다.  
-이 경우 ./local.properties 파일을 새로 생성하고 sdk 와 ndk 의 경로를 각각 아래의 “형식”으로 적는다. (역슬래시의 위치와 개수에 유의)
+이 경우 ./local.properties 파일을 새로 생성하고 sdk 와 ndk 의 경로를 각각 아래의 “형식”으로 적는다. (역슬래시의 위치와 개수에 유의, 각자에게 맞는 경로를 입력할 것)
 ```java
 sdk.dir=C\:\\Users\\username\\AppData\\Local\\Android\\Sdk
 ndk.dir=C\:\\Users\\username\\AppData\\Local\\Android\\Sdk\\ndk\\22.1.7171670
