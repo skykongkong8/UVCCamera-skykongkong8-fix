@@ -1,6 +1,7 @@
 UVCCamera
 =========
-## This is optimized version for Windows 10, SDK Android API Level 27, NDK 21, Gradle 7.1.1 (2021.07.09)
+## This is optimized version for Windows 10, SDK Android API Level 27, NDK 21, Gradle 7.1.1 
+### Updated Date: 2021.07.09
 ### ONLY FOR TEST PURPOSE, NO COMMERCIAL USE
 ### Great Appreciation for saki, and komakai
 
@@ -82,7 +83,7 @@ git clone https://github.com/komakai/UVCCamera.git
 7. RUN으로 App을 설치한다.
 
 # 4. 매우 상세한 절차
-### 이는 komakai-fixes branch에서 수정한 모든 일련의 과정을 적은 것입니다. 코드는 수정되어 있으니, 상황에 맞는 API Version을 다운로드하여 사용하세요.
+### 이는 komakai-fixes branch에서 수정한 모든 일련의 과정을 적은 것입니다. **코드는 이미 수정되어 있으니**, 상황에 맞는 API Version을 다운로드하여 사용하십시오.
 1. 프로젝트를 진행할 디렉토리를 생성하고 해당 디렉토리 내부로 들어간다.
 2. 아래 Git 커맨드로 파일을 불러온다.
 ```git
@@ -102,7 +103,8 @@ ndk.dir=C\:\\Users\\username\\AppData\\Local\\Android\\Sdk\\ndk\\22.1.7171670
 ```
 7. File > Project Structure > Modules > Properties/Default Config 모두에서 각각의 SDK/NDK Version 과 Target SDK Version(27), Min SDK Version(14)을 설정한다.
 8. File > Settings > Build, Execution, Deployment > Build Tools > Gradle 이나, File > Project Structures > Project 에서 사용할 Gradle 버전을 GUI 상으로 지정할 수 있다.
-* 그러나 코드상으로 직접 지정하는 것 또한 가능하다. (그리고 이번 프로젝트의 경우 이를 권장하고 있다.) 가장 head 의 gradle > gradle-wrapper.properties 에서 gradle 버전을 아래와 같이 지정하고
+* 그러나 코드상으로 직접 지정하는 것 또한 가능하다. (그리고 이번 프로젝트의 경우 이를 권장하고 있다.)  
+  가장 head 의 gradle > gradle-wrapper.properties 에서 gradle 버전을 아래와 같이 지정하고
 ```java
 distributionUrl=https\://services.gradle.org/distributions/gradle-7.1.1-bin.zip
 ```
@@ -110,15 +112,18 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-7.1.1-bin.zip
 ```classpath 'com.android.tools.build:gradle:4.2.0'
 versionBuildTool = '30.0.2'
 ```
-* 아래 주소에서 호환되는 gradle 과 plugin 버전을 확인할 수 있다. 더 낮은 gradle 버전을 사용하고 싶다면 참고하면 된다.
-  * https://developer.android.com/studio/releases/gradle-plugin?hl=ko
-* 그러나 java 버전과 호환되는 gradle 을 사용하여야 하기 때문에 3.5.1 이하로 낮추어서는 안 된다. 또, 이에 맞는 versionBuildTool 또한 맞춰주어야 한다. (자동으로 Android Studio 에서 알려줌)
+* 아래 주소에서 호환되는 gradle 과 plugin 버전을 확인할 수 있다.  
+  더 낮은 gradle 버전을 사용하고 싶다면 참고하면 된다.
+  * <https://developer.android.com/studio/releases/gradle-plugin?hl=ko>
+* 그러나 java 버전과 호환되는 gradle 을 사용하여야 하기 때문에 3.5.1 이하로 낮추어서는 안 된다.  
+  또, 이에 맞는 versionBuildTool 또한 맞춰주어야 한다. (자동으로 Android Studio 에서 알려줌)
 9. 우리가 사용하는 Google Pixel 은 64 비트를 사용한다.  
 따라서, .\libuvccamera\src\main\jni\UVCCamera\Application.mk 에서 APP_ABI 를 아래와 같이 수정한다.  
 ```java
 APP_ABI := armeabi-v7a arm64-v8a
 ```
-10. 각 예제별로 예제\src\main\AndroidManifest.xml 파일이 있다. 여기 나오는 theme 방식이 너무 구버전이라 업데이트 버전을 사용해야한다. 아래와 같이 바꾸어준다.
+10. 각 예제별로 예제\src\main\AndroidManifest.xml 파일이 있다.  
+    여기 나오는 theme 방식이 너무 구버전이라 업데이트 버전을 사용해야한다. 아래와 같이 바꾸어준다.
 ```java
 android:theme="@style/Theme.AppCompat
 ```
@@ -138,7 +143,7 @@ adb connect 'device_ip_address'
 ```adb
 adb logcat
 ```
-* 참조: https://developer.android.com/studio/command-line/adb?hl=ko
+* 참조: <https://developer.android.com/studio/command-line/adb?hl=ko>
 * wifi 다이렉트로 연결하면 외부 카메라와 물리적 연결을 하였을 때 발생하는 오류
 메세지도 볼 수 있으므로 더욱 편리하다.
 14. RUN
@@ -162,4 +167,4 @@ allowInsecureProtocol = true}
 * Finished with non-zero exit value 1, Keystone 경로/유형/형식 이 invalid 함
   * 역시 경로 문제일 가능성이 높다. 경로 내 한글이나 띄어쓰기가 없나 확인하자.
 * 아래 링크에서 검색하여 참고한다.
-  * https://github.com/saki4510t/UVCCamera/issues
+  * 참조: <https://github.com/saki4510t/UVCCamera/issues>
