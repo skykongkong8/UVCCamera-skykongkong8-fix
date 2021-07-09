@@ -105,11 +105,11 @@ ndk.dir=C\:\\Users\\username\\AppData\\Local\\Android\\Sdk\\ndk\\22.1.7171670
 7. File > Project Structure > Modules > Properties/Default Config 모두에서 각각의 SDK/NDK Version 과 Target SDK Version(27), Min SDK Version(14)을 설정한다.
 8. File > Settings > Build, Execution, Deployment > Build Tools > Gradle 이나, File > Project Structures > Project 에서 사용할 Gradle 버전을 GUI 상으로 지정할 수 있다.
 * 그러나 코드상으로 직접 지정하는 것 또한 가능하다. (그리고 이번 프로젝트의 경우 이를 권장하고 있다.)  
-  가장 head 의 gradle > gradle-wrapper.properties 에서 gradle 버전을 아래와 같이 지정하고
+  가장 head 의 .\gradle\gradle-wrapper.properties 에서 gradle 버전을 아래와 같이 지정하고
 ```java
 distributionUrl=https\://services.gradle.org/distributions/gradle-7.1.1-bin.zip
 ```
-* 가장 head 의 build.gradle 에서 아래와 같이 android plugin과 versionBuildTool을 지정할 수 있다.
+* 가장 head 의 .\build.gradle 에서 아래와 같이 android plugin과 versionBuildTool을 지정할 수 있다.
 ```java
 classpath 'com.android.tools.build:gradle:4.2.0'
 versionBuildTool = '30.0.2'
