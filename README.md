@@ -3,7 +3,7 @@ UVCCamera
 ## This is optimized version for Windows 10, SDK Android API Level 27, NDK 21, Gradle 7.1.1 
 ### Updated Date: 2021.07.09
 ### ONLY FOR TEST PURPOSE, NO COMMERCIAL USE
-### Great Appreciation to @saki4510t, and @komakai
+### Great Appreciation for contribution of [saki4510t](https://github.com/saki4510t), and [komakai](https://github.com/komakai)
 
 
 library and sample to access to UVC web camera on non-rooted Android device
@@ -41,28 +41,28 @@ Or if you want to install and try all sample projects on your device, run `gradl
 
 Note: Just make sure that `local.properties` contains the paths for `sdk.dir` and `ndk.dir`. Or you can set them as enviroment variables of you shell. On some system, you may need add `JAVA_HOME` enviroment valiable that points to JDK directory.  
 
-KOREAN GUIDLINE
+KOREAN GUIDELINE
 ==============
 # 1. Introduction
-* 먼저, 이 라이브러리의 원본은 '@saki4510t'와 branch 수정자 '@komakai'에게 있음을 밝힙니다.
+* 먼저, 이 라이브러리의 원본은 [saki4510t](https://github.com/saki4510t)와 branch 수정자 [komakai](https://github.com/komakai)에게 있음을 밝힙니다.
 * 이 매뉴얼은 Windows10 환경에서 Gradle 을 사용하여 ‘Google Pixel (Android version 10)’에 설치하는 방법을 다룹니다.
 * 아래 적힌 매뉴얼은 이미 수정된 사항이며 komakai의 branch에서 아래의 절차를 따라가면 위 라이브러리와 완벽히 같은 파일을 생성할 수 있습니다.
 * **아래 과정을 보고, 각자의 환경에 맞게 수정하여 사용하시길 바랍니다.**
 * 주요 부분만 요약한 내용과, 개발 환경에 대해 잘 모르더라도 간단한 코딩 지식만으로 할 수 있도록 상세히 안내한 가이드라인이 구분되어 있습니다.
-* **경고**: 몇 가지 앱은 자체적으로 불안정하거나, 구버전이라 맞지 않는 형식이 있습니다.
-* **경고**: 시작하기 전에, **가장 중요한 것은 '띄어쓰기가 없으며', '영어' username**을 가지고 시작하는 것입니다.
-* Windows10의 경우 이를 중간에 바꾸는 것이 불가능하므로 향후 다른 프로젝트를 위해서라도 새로운 로컬계정을 생성하는 것을 추천합니다.
+> * **경고**: 몇 가지 앱은 자체적으로 불안정하거나, 구버전이라 맞지 않는 형식이 있습니다.
+> * **경고**: 시작하기 전에, ***가장 중요한 것은 '띄어쓰기가 없으며', '영어' username***을 가지고 시작하는 것입니다.
+> * Windows10의 경우 이를 중간에 바꾸는 것이 불가능하므로 향후 다른 프로젝트를 위해서라도 새로운 로컬계정을 생성하는 것을 추천합니다.
 
 # 2. 필요 API와 프로그램
-1. SDK (최신 Android Studio 를 설치한 후 SDK Platform 을 따로 설치하면 됩니다.)
- * Android 8.1(Oreo) (API Level 27) -target
- * Android 4.0(IceCreamSandwich) (API Level 14) -min
+1. [SDK](https://developer.android.com/studio?hl=ko) (최신 Android Studio 를 설치한 후 SDK Platform 을 따로 설치하면 됩니다.)
+ * Android 8.1(Oreo) (API Level 27) -target SDK
+ * Android 4.0(IceCreamSandwich) (API Level 14) -min SDK
 2. NDK (Android Studio 에서 설치)
  * 22.1.7171670
  * 14b 버전을 사용할 필요 없습니다.
 3. JDK
  * 예제 내부적으로 JDK_1_8 이 지정되어있습니다. SDK 에 지정된 JDK(jre) 경로를 우선 사용해도 무방합니다.
- * 문제가 생긴다면 JDK8 을 직접 oracle 에서 설치하여 경로를 지정하거나, JAVA_HOME 환경 변수로 지정합니다.
+ * 문제가 생긴다면 [JDK8 을 직접 oracle 에서 설치](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)하여 경로를 지정하거나, JAVA_HOME 환경 변수로 지정합니다.
 4. Gradle (Android Studio 에서 설치 가능)
  * Gradle 7.1.1
  * android gradle plugin 4.2.0
@@ -84,7 +84,7 @@ git clone https://github.com/skykongkong8/UVCCamera.git
 7. RUN으로 App을 설치한다.
 
 # 4. 매우 상세한 절차
-### 이는 komakai-fixes branch에서 수정한 모든 일련의 과정을 적은 것입니다. **코드는 이미 수정되어 있으니**, 상황에 맞는 API Version을 다운로드하여 사용하십시오.
+### 이는 [komakai-fixes branch](https://github.com/komakai/UVCCamera)에서 수정한 모든 일련의 과정을 적은 것입니다. **코드는 이미 수정되어 있으니**, 상황에 맞는 API Version을 다운로드하여 사용하십시오.
 1. 프로젝트를 진행할 디렉토리를 생성하고 해당 디렉토리 내부로 들어간다.
 2. 아래 Git 커맨드로 파일을 불러온다.
 ```git
@@ -114,9 +114,8 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-7.1.1-bin.zip
 classpath 'com.android.tools.build:gradle:4.2.0'
 versionBuildTool = '30.0.2'
 ```
-* 아래 주소에서 호환되는 gradle 과 plugin 버전을 확인할 수 있다.  
+* [여기](https://developer.android.com/studio/releases/gradle-plugin?hl=ko)에서 호환되는 gradle 과 plugin 버전을 확인할 수 있다.  
   더 낮은 gradle 버전을 사용하고 싶다면 참고하면 된다.
-  * <https://developer.android.com/studio/releases/gradle-plugin?hl=ko>
 * 그러나 java 버전과 호환되는 gradle 을 사용하여야 하기 때문에 3.5.1 이하로 낮추어서는 안 된다.  
   또, 이에 맞는 versionBuildTool 또한 맞춰주어야 한다. (자동으로 Android Studio 에서 알려줌)
 9. 우리가 사용하는 Google Pixel 은 64 비트를 사용한다.  
@@ -124,7 +123,7 @@ versionBuildTool = '30.0.2'
 ```java
 APP_ABI := armeabi-v7a arm64-v8a
 ```
-10. 각 예제별로 예제\src\main\AndroidManifest.xml 파일이 있다.  
+10. 각 예제별로 '예제'\src\main\AndroidManifest.xml 파일이 있다.  
     여기 나오는 theme 방식이 너무 구버전이라 업데이트 버전을 사용해야한다. 아래와 같이 바꾸어준다.
 ```java
 android:theme="@style/Theme.AppCompat
@@ -135,17 +134,18 @@ android:theme="@style/Theme.AppCompat
 13. PC - Pixel 연결하기
 * 방법 1: 물리적 연결
   * C 타입 케이블로 연결하면 Android Studio 에 기기가 인식된다.
-* 방법 2: wifi 다이렉트 (통상 Android 11 이상을 권장하지만, 해도 된다.)
+* 방법 2: wifi 다이렉트 *(통상 Android 11 이상을 권장하지만, 해도 된다.)*
   * PC 와 Google Pixel 을 같은 wifi 에 연결한 뒤, CMD 창에 아래와 같이 입력한다.
-```adb
+    * 만약 adb가 없다면 환경 변수에서 추가하면 된다. SDK가 설치되면서 자동으로 설치되었을 것이기 때문이다.
+```bash
 adb tcpip 5555
 adb connect 'device_ip_address'
 ```
   * 그 후 진행되는 Logcat 을 보고 싶다면 CMD 에서
-```adb
+```bash
 adb logcat
 ```
-* 참조: <https://developer.android.com/studio/command-line/adb?hl=ko>
+* [더 자세한 안내](https://developer.android.com/studio/command-line/adb?hl=ko)
 * wifi 다이렉트로 연결하면 외부 카메라와 물리적 연결을 하였을 때 발생하는 오류
 메세지도 볼 수 있으므로 더욱 편리하다.
 14. RUN
@@ -166,7 +166,6 @@ allowInsecureProtocol = true}
   *  너무 많은 원인이 있을 수 있지만, .\.gradle 디렉토리를 삭제하고 재실행해보기를 권장한다. 캐싱 과정에서 꼬여서 그런 경우가 있다고 한다.
 * SDK CMD에서 깨진 오류 메세지
   * 대부분 경로 문제일 확률이 높다. 경로에 한글이나 띄어쓰기가 없는지 확인하자.
-* Finished with non-zero exit value 1, Keystone 경로/유형/형식 이 invalid 함
+* 'Finished with non-zero exit value 1' 또는 'Keystone 경로/유형/형식 이 invalid 함'
   * 역시 경로 문제일 가능성이 높다. 경로 내 한글이나 띄어쓰기가 없나 확인하자.
-* 아래 링크에서 검색하여 참고한다.
-  * 참조: <https://github.com/saki4510t/UVCCamera/issues>
+* [여기](https://github.com/saki4510t/UVCCamera/issues)에서 검색하여 참고한다.
