@@ -110,7 +110,8 @@ ndk.dir=C\:\\Users\\username\\AppData\\Local\\Android\\Sdk\\ndk\\22.1.7171670
 distributionUrl=https\://services.gradle.org/distributions/gradle-7.1.1-bin.zip
 ```
 * 가장 head 의 build.gradle 에서 아래와 같이 android plugin과 versionBuildTool을 지정할 수 있다.
-```classpath 'com.android.tools.build:gradle:4.2.0'
+```java
+classpath 'com.android.tools.build:gradle:4.2.0'
 versionBuildTool = '30.0.2'
 ```
 * 아래 주소에서 호환되는 gradle 과 plugin 버전을 확인할 수 있다.  
