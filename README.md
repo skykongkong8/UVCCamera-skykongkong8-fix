@@ -3,7 +3,7 @@ UVCCamera
 ## This is optimized version for Windows 10, SDK Android API Level 27, NDK 21, Gradle 7.1.1 
 ### Updated Date: 2021.07.09
 ### ONLY FOR TEST PURPOSE, NO COMMERCIAL USE
-### Great Appreciation for saki, and komakai
+### Great Appreciation for @saki, and @komakai
 
 
 library and sample to access to UVC web camera on non-rooted Android device
@@ -44,7 +44,7 @@ Note: Just make sure that `local.properties` contains the paths for `sdk.dir` an
 KOREAN GUIDLINE
 ==============
 # 1. Introduction
-* 먼저, 이 라이브러리의 원본은 'saki4510t'와 branch 수정자 'komakai'에게 있음을 밝힙니다.
+* 먼저, 이 라이브러리의 원본은 '@saki4510t'와 branch 수정자 '@komakai'에게 있음을 밝힙니다.
 * 이 매뉴얼은 Windows10 환경에서 Gradle 을 사용하여 ‘Google Pixel (Android version 10)’에 설치하는 방법을 다룹니다.
 * 아래 적힌 매뉴얼은 이미 수정된 사항이며 komakai의 branch에서 아래의 절차를 따라가면 위 라이브러리와 완벽히 같은 파일을 생성할 수 있습니다.
 * **아래 과정을 보고, 각자의 환경에 맞게 수정하여 사용하시길 바랍니다.**
