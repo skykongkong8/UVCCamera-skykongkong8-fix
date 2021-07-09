@@ -84,7 +84,7 @@ git clone https://github.com/skykongkong8/UVCCamera.git
 7. RUN으로 App을 설치한다.
 
 # 4. 매우 상세한 절차
-### 이는 [komakai-fixes branch](https://github.com/komakai/UVCCamera)에서 수정한 모든 일련의 과정을 적은 것입니다. **코드는 이미 수정되어 있으니**, 상황에 맞는 API Version을 다운로드하여 사용하십시오.
+### 이는 [komakai-fixes branch](https://github.com/komakai/UVCCamera/tree/komakai-fixes)에서 수정한 모든 일련의 과정을 적은 것입니다. **코드는 이미 수정되어 있으니**, 상황에 맞는 API Version을 다운로드하여 사용하십시오.
 1. 프로젝트를 진행할 디렉토리를 생성하고 해당 디렉토리 내부로 들어간다.
 2. 아래 Git 커맨드로 파일을 불러온다.
 ```git
