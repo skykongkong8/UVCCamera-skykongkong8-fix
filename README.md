@@ -3,7 +3,7 @@ UVCCamera
 ## This is optimized version for Windows 10, SDK Android API Level 27, NDK 21, Gradle 7.1.1 
 ### Updated Date: 2021.07.09
 ### ONLY FOR TEST PURPOSE, NO COMMERCIAL USE
-### Great Appreciation for @saki, and @komakai
+### Great Appreciation to @saki4510t, and @komakai
 
 
 library and sample to access to UVC web camera on non-rooted Android device
