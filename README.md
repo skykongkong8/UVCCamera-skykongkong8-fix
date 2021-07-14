@@ -1,7 +1,8 @@
 UVCCamera
 =========
 ## This is optimized version for Windows 10, SDK Android API Level 27, NDK 21, Gradle 7.1.1 
-### Updated Date: 2021.07.09
+## This branch supports USB 3.0 (If completed)
+### Updated Date: 2021.07.14
 ### ONLY FOR TEST PURPOSE, NO COMMERCIAL USE
 ### Great Appreciation for contribution of [saki4510t](https://github.com/saki4510t), and [komakai](https://github.com/komakai)
 
