@@ -169,4 +169,6 @@ allowInsecureProtocol = true}
   * 대부분 경로 문제일 확률이 높다. 경로에 한글이나 띄어쓰기가 없는지 확인하자.
 * 'Finished with non-zero exit value 1' 또는 'Keystone 경로/유형/형식 이 invalid 함'
   * 역시 경로 문제일 가능성이 높다. 경로 내 한글이나 띄어쓰기가 없나 확인하자.
+* 'Finished with non-zero exit value 2'
+  * 다양한 에러 원인의 가능성이 있지만, 실수로 코딩을 잘못해서 문법상 오류가 있는 경우일 수 있다. 나의 경우 주석 등을 처리할 때 문제가 있었다. C/C++/Java 등 다양한 언어가 혼재하므로 더 유의하도록 하자.   
 * [여기](https://github.com/saki4510t/UVCCamera/issues)에서 검색하여 참고한다.
