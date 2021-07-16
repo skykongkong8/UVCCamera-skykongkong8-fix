@@ -172,3 +172,51 @@ allowInsecureProtocol = true}
 * 'Finished with non-zero exit value 2'
   * 다양한 에러 원인의 가능성이 있지만, 실수로 코딩을 잘못해서 문법상 오류가 있는 경우일 수 있다. 나의 경우 주석 등을 처리할 때 문제가 있었다. C/C++/Java 등 다양한 언어가 혼재하므로 더 유의하도록 하자.   
 * [여기](https://github.com/saki4510t/UVCCamera/issues)에서 검색하여 참고한다.
+
+# 6. USB 3.0과 FHD 기능 추가 시도
+## 개요
+현재 UVCCamera 앱 샘플들은 640x480 화질을 지원한다. 이 경우 실질적으로 FHD기능을 지원하는 하드웨어가 있어도, 앱 성능 문제로 FHD 영상이 출력되지 않는 문제가 생긴다.   
+더불어 이 경우 USB 2.0으로는 대역폭이 부족하게 되어 USB 3.0 (SS)를 사용하도록 애플리케이션 소스코드 수정과 하드웨어 세팅이 필요하다.    
+*작업을 시작하기 전, 기존의 UVCCamera 샘플을 만들었었다면 새로운 브랜치를 생성하여 진행하는 것을 추천한다.*
+
+## USB 3.0 연결하기
+* USB 포트, remote PC, Android 기기, 그리고 연결한 카메라 전체가 USB 3.0 (Super Speed)을 지원하는지 확인한다.   
+일반적으로 포트가 파란색이고, ‘ss’가 적혀있는 로고가 있다면 USB 3.0용 포트이다. 또한, 기타 기기의 경우 이하에 후술한 ‘USB descriptor 확인법’에서 확인할 수 있다.  
+*	일반적으로는 자동으로 USB 3.0이 인식되어 사용되어야 하지만, 기기 configuration에 따라 예외 상황이 발생할 수 있다. 이 경우, 아래의 지침을 따른다.  
+  *	아래 위치에 있는 uvc_parse_vc_header에 “case 0x0105”를 추가한다.  
+    * libuvccamera/src/main/jni/libuvc/src/device_original.c   
+    * libuvccamera/src/main/jni/libuvc/src/device.c   
+    * C언어 문법으로 switch-case 구조의 함수가 짜여져 있기 때문에 그 부분에 넣으면 된다.   
+  * LOCAL_CFLAGS 수정
+    * libuvccamera/src/main/jni/UVCCamera/Android.mk    
+    * libuvccamera/src/main/jni/libusb/jni/libusb.mk    
+    * 상기 경로에 있는 ```LOCAL_CFLAGS+= -O3 -fstrict-aliasing -fprefetch-loop-arrays``` 를    
+    * ```LOCAL_CFLAGS+= -O1 -fstrict-aliasing -fprefetch-loop-arrays``` 으로 수정한다.    
+* FHD 설정하기
+  * 대부분의 소스코드의 경우 공통 라이브러리에서 default width, height 등 관련 변수를 미리 #define 해두고, 모든 파일에서 이를 소프트코딩하여 쓰고 있다.  
+    * Cpp와 Java가 서로 나누어 정의되어 있으므로 이것에 유의하자.    
+    * 별도로, 앱 별로 소프트코딩되어있는 DEFAULT_BANDWIDTH (대역폭)도 있는데, 이 역시 수정하여야 하는지는 불명이다. 수정하지 않을 경우 1.0f로 설정되어 있다.    
+  * >	libuvccamera/src/main/jni/UVCCamera/UVCPreview.h    
+    > libuvccamera/src/main/java/com/serenegiant/usb/UVCCamera.java    
+    > 위 경로에서 각각의 원하는 해상도를 설정할 수 있다.    
+    > 참고로, FHD의 해상도는 1920x1080 이다.    
+## USB descriptor 확인법 (Windows 10)  
+#### USB 타입이나 그에 연결된 장치에 관한 정보가 서로 호환되지 않으면 프로그램이 원활히 실행되지 않는 경우가 많다. 이때, 아래의 방법을 활용하여 정보를 확인할 수 있다.
+*	Windows USBView 설치 사용 (WDK의 일부 기능)
+  * Windows SDK에서 Debugging Tools for Windows 만 설치한다.
+  * Default 설치 경로 ```C:\Program Files (x86)\Windows Kits\10\Debuggers\x64에 USBView.exe```가 있다. 이를 실행시키면 된다.
+* USBView 소스코드 및 사용법
+  * [소스코드](https://github.com/microsoft/Windows-driver-samples/tree/master/usb/usbview)
+  * [사용법](https://docs.microsoft.com/ko-kr/windows-hardware/drivers/debugger/usbview)
+* 외부 프로그램 **(개인적 권장)**
+  * [Theysycon USB Descriptor Dumper](https://www.thesycon.de/eng/usb_descriptordumper.shtml)
+> 사용되는 용어나 함수의 기능 등을 [USB Manager](https://developer.android.com/reference/android/hardware/usb/UsbManager)에서 참고하여 보면 도움이 된다. 
+## 추가적인 조언 : 아래와 같은 이유로 FHD 지원이 어려울 수 있다.
+1. USB 대역폭 문제: USB 3.0으로 제대로 인식되었다면 문제없을 것이다.  
+2. MJPEG recording speed 문제: 현재 라이브러리는 libjpeg을 사용하지만 libjpeg-turbo와 같은 상업용의 경우 훨씬 빠르다.  
+3. 사용하는 기기 자체의 문제: 메모리 엑세스/ 렌더링 속도가 느림  
+4. Max_descriptor size의 한계: 아래 경로에 max_descriptor size가 C언어 배열로 하드코딩되어 있다.  
+사용하는 USB의 wTotalLength를 확인하고 이보다 큰 사이즈를 가지도록 재정의해야할 수 있다.  
+>  UVCCamera/libuvccamera/src/main/jni/libusb/libusb/os/android_usbfs.c 에서    
+> ```unit8_t desc[4096]``` 을 ```unit8_t desc[8192]``` 등으로 늘린다.   
+5. FHD의 경우 4K가 아니라 1920X1080 해상도임을 명심하자. 이 파라미터가 createHandler 함수의 인수로 들어가는 것을 확인하자.   
