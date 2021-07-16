@@ -993,7 +993,7 @@ uvc_error_t uvc_parse_vc_header(uvc_device_t *dev, uvc_device_info_t *info,
 	case 0x0100:
 	case 0x010a:
 	case 0x0110:
-	case 0x0150:	// XXX add to support UVC 1.5
+	//case 0x0150:	// XXX add to support UVC 1.5
 		break;
 	default:
 		UVC_EXIT(UVC_ERROR_NOT_SUPPORTED);

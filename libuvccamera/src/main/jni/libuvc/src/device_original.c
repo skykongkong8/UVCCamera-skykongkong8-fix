@@ -819,7 +819,7 @@ uvc_error_t uvc_parse_vc_header(uvc_device_t *dev,
   case 0x0100:
   case 0x010a:
   case 0x0110:
-  case 0x0105: /*Add to support USB 3.0 (tmp) */
+  //case 0x0105: /*Add to support USB 3.0 (tmp) */
     break;
   default:
     UVC_EXIT(UVC_ERROR_NOT_SUPPORTED);

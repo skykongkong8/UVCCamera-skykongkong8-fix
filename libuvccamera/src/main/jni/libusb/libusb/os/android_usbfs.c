@@ -1299,7 +1299,7 @@ static int android_initialize_device(struct libusb_device *dev,
 
 	struct android_device_priv *priv = _device_priv(dev);
 	struct libusb_context *ctx = DEVICE_CTX(dev);
-	uint8_t desc[4096]; // max descriptor size is 4096 bytes
+	uint8_t desc[8192]; //4096 // max descriptor size is 4096 bytes
 	int speed;
 	ssize_t r;
 
@@ -2726,7 +2726,7 @@ static int handle_iso_completion(struct libusb_device_handle *handle,	// XXX add
 
 	usbi_mutex_lock(&itransfer->lock);
 	for (i = 0; i < num_urbs; i++) {
-	    if (tpriv->iso_urbs == 0) break; // According to https://github.com/saki4510t/UVCCamera/issues/446 (nothing to do with Android 9, tmp)
+	    //if (tpriv->iso_urbs == 0) break; // According to https://github.com/saki4510t/UVCCamera/issues/446 (nothing to do with Android 9, tmp)
 		if (urb == tpriv->iso_urbs[i]) {
 			urb_idx = i + 1;
 			break;
