@@ -1,4 +1,4 @@
-UVCCamera
+UVCCamera - skykongkong fix
 =========
 ## This is optimized version for Windows 10, SDK Android API Level 27, NDK 21, Gradle 7.1.1 
 ### Updated Date: 2021.07.09
